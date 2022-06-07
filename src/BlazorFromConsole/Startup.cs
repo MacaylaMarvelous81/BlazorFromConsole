@@ -7,14 +7,17 @@ namespace BlazorFromConsole
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddServerSideBlazor();
             services.AddRazorPages();
         }
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(endpoints => {
-                endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/_Host");
             });
         }
     }
