@@ -1,0 +1,13 @@
+@namespace BlazorFromConsole
+
+<p>Value: @Value</p>
+<button @onclick="Increment">Increment</button>
+
+@code {
+    private int Value;
+
+    private void Increment()
+    {
+        this.Value += 1;
+    }
+}
